@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Product from "../Data/Product.json";
+import js from "@eslint/js";
 
 const FeatureProduct = ({ addToCart, setCart, cart }) => {
   const feature = Product.FeatureProduct;
-  console.log(cart);
+  
 
-  const getCartItem = (id) => {
-    return cart?.find((item) => item.id === id);
-  };
+
 
   const increaseQty = (id) => {
     const updated = cart?.map((item) =>
@@ -29,6 +28,7 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12  w-full">
       <div className="grid md:grid-cols-2 gap-6 mb-12 ">
+        
         <div className="relative h-64 rounded-2xl overflow-hidden group shadow-xl hover:shadow-2xl cursor-pointer">
           <img
             src="/products/s.jpg"
@@ -41,7 +41,17 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
             <p className="text-gray-300 font-medium">$120</p>
 
             <button
-              onClick={() => addToCart(item)}
+              onClick={() => addToCart({
+                id:100,
+                name: "Jam Box" ,
+                price:" $120",
+                image: "/products/s.jpg",
+                quantity:1,
+
+              })
+                
+
+              }
               className="mt-3 w-fit bg-white text-black px-4 py-1 rounded-full text-sm hover:bg-gray-200"
             >
               Shop Now
@@ -60,7 +70,16 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
             <h2 className="text-white text-2xl font-bold">Headphones</h2>
             <p className="text-gray-200 font-medium">$80</p>
 
-            <button className="mt-3 w-fit bg-white text-black px-4 py-1 rounded-full text-sm hover:bg-gray-200">
+            <button onClick={()=> addToCart ({
+              id: 101,
+              name: "Headphones",
+              price: "$89",
+              image: "/products/he.jpg",
+              quantity: 1,
+              
+
+            })}
+             className="mt-3 w-fit bg-white text-black px-4 py-1 rounded-full text-sm hover:bg-gray-200">
               Shop Now
             </button>
           </div>
@@ -72,8 +91,11 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {feature.map((item) => (
-          <div
+        {feature.map((item) => {
+
+          const cartItem = cart?.find((test)=> test.id === item.id);
+          return(
+            <div
             key={item.id}
             className="bg-white rounded-xl shadow-md p-4 hover:scale-105 transition flex flex-col"
           >
@@ -83,7 +105,7 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
               className="rounded-lg w-full h-40 object-cover"
             />
 
-            <h3 className="mt-3 font-semibold">{item.name}</h3>
+            <h3 classNam  bm  e="mt-3 font-semibold">{item.name}</h3>
 
             <p className="text-gray-500">{item.price}</p>
 
@@ -94,19 +116,17 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
               >
                 View
               </Link>
-              {/* { */}
+              
 
-              {cart?.find((test) => test.id === item.id) ? (
+              {cartItem ? (
                 <div className=" flex items-center gap-2 ">
                   <button
                     onClick={() => decreaseQty(item.id)}
                     className="rounded bg-gray-300 px-2 py-1"
-                  >
-                    _
-                  </button>
+                  > _</button>
 
                   <span>
-                    {cart?.find((test) => test.id === item.id).quantity}
+                    {cartItem.quantity}
                   </span>
                   <button
                     onClick={() => increaseQty(item.id)}
@@ -119,18 +139,21 @@ const FeatureProduct = ({ addToCart, setCart, cart }) => {
                 <button
                   onClick={() => {
                     addToCart(item);
-                    getCartItem(item.id);
+                    
                   }}
-                  className="bg-emerald-600 px-3 py-1 rounded text-white hover:bg-emerald-500 transition"
+                  className="bg-emerald-600 px-3 py-1 rounded text-white hover:bg-emerald-500 transition cursor-pointer"
                 >
                   Add
                 </button>
               )}
 
-              {/* } */}
+              
             </div>
           </div>
-        ))}
+
+          )
+          
+})}
       </div>
     </div>
   );
