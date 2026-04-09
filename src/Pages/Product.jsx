@@ -1,15 +1,19 @@
 import React from "react";
 import Navbar from "../Component/Navbar";
-import product from "../Data/Product.json";
+import { useAppSelector, useAppDispatch } from "../hooks/useRedux";
 import { Link } from "react-router-dom";
+import { addToCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
 
-const Product = ({cart,addToCart}) => {
+const Product = () => {
+  const dispatch = useAppDispatch();
+  const product = useAppSelector((state) => state.products.allProducts || []);
+  const cart = useAppSelector((state) => state.cart.items);
   const allProducts = [
-    ...product.Electronics,
-    ...product.shoes,
-    ...product.HomeItems,
-    ...product.MoreProduct,
-    ...product.FeatureProduct,
+    ...(product.Electronics || []),
+    ...(product.shoes || []),
+    ...(product.HomeItems || []),
+    ...(product.MoreProduct || []),
+    ...(product.FeatureProduct || []),
   ];
 
   return (
@@ -17,8 +21,11 @@ const Product = ({cart,addToCart}) => {
       <Navbar cart={cart} />
       <div className="max-w-7xl mx-auto px-10 py-20">
         <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {allProducts.map((item) => (
-            <div
+          {allProducts.map((item) => {
+            const cartItem = cart.find((i) => i.id === item.id);
+
+            return(
+              <div
               key={item.id}
               className="rounded-xl shadow-md p-4 hover:shadow-xl transition bg-sky-200 "
             >
@@ -32,19 +39,46 @@ const Product = ({cart,addToCart}) => {
               <p>{item.price}</p>
 
               <div className="flex justify-between mt-3">
-                <Link to={`/product/${item.id}`}
-                 className="bg-sky-800 text-white px-3 py-1 rounded text-sm hover:bg-sky-500">
+                <Link
+                  to={`/product/${item.id}`}
+                  className="bg-sky-800 text-white px-3 py-1 rounded text-sm hover:bg-sky-500"
+                >
                   View
-                 
                 </Link>
 
-                <button onClick={() => addToCart(item)}
-                className="bg-emerald-600 text-white px-3 py-1 rounded text-sm hover:bg-emerald-700">
+                {cartItem ? (
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => dispatch(decreaseQty(item.id))}
+                      className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600"
+                    >
+                      -
+                    </button>
+                    <span>{cartItem.qty}</span>
+                    <button
+                      onClick={() => dispatch(increaseQty(item.id))}
+                      className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600"
+                    >
+                      +
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => dispatch(addToCart(item))}
+                    className="bg-emerald-600 text-white px-3 py-1 rounded text-sm hover:bg-emerald-700"
+                  >
                   Add to Cart
                 </button>
+                )}
               </div>
             </div>
-          ))}
+            );
+})}
+
+            
+          
+        
+            
         </div>
       </div>
     </div>

@@ -23,9 +23,7 @@ const AboutUs = () => {
              <Link to='/product' className="mt-6 bg-sky-700 text-white px-6 py-3 rounded-lg hover:bg-sky-500 transition">
             Shop Now
           </Link>
-          </div>
-         
-      
+          </div> 
         </div>
 
         <img

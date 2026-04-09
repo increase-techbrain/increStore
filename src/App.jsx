@@ -8,12 +8,12 @@ import MoreProduct from "./Pages/MoreProduct";
 import { useState } from "react";
 import ProductDetail from "./Component/ProductDetail";
 import Cart from "./Component/Cart";
-import FeatureProduct from "./Component/FeatureProduct";
+
 
 function App() {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
+  const addToCart = (product  ) => {
     const existing = cart.find((item) => item.id === product.id);
 
     if (existing) {

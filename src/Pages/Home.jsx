@@ -4,9 +4,16 @@ import ListItems from "../Component/ListItems";
 import FeatureProduct from "../Component/FeatureProduct";
 import About from "./About";
 import Footer from "../Pages/Footer";
+import { addToCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../hooks/useRedux";
 
-const Home = ({ addToCart, cart, increaseQty, decreaseQty, setCart }) => {
+const Home = () => {
+  const dispatch = useAppDispatch();
+
+
+  const cart = useAppSelector((state) => state.cart.items);
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <Navbar cart={cart} />
@@ -65,11 +72,9 @@ const Home = ({ addToCart, cart, increaseQty, decreaseQty, setCart }) => {
 
       <div className="max-w-7xl mx-auto px-6 py-12">
         <FeatureProduct
-          addToCart={addToCart}
-          increaseQty={increaseQty}
-          decreaseQty={decreaseQty}
-          cart={cart}
-          setCart={setCart}
+          addToCart={(item) => dispatch(addToCart(item))}
+          increaseQty={(id) => dispatch(increaseQty(id))}
+          decreaseQty={(id) => dispatch(decreaseQty(id))}
         />
       </div>
 
