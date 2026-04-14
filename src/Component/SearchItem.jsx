@@ -20,17 +20,16 @@ const SearchItem = () => {
   ];
 
   const results = allProducts.filter((item) =>
-    item.name.toLowerCase().includes(query.toLowerCase())
+    item.name.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
     <div className="min-h-screen w-full bg-sky-200">
-    
       <Navbar cart={cart} />
 
       <div className="max-w-7xl mx-auto px-6 py-10">
         <h1 className="text-2xl font-bold mb-6 text-sky-600">
-          Search Result for: "{query}"
+          Search Result for: {query}
         </h1>
 
         {results.length === 0 ? (
@@ -38,24 +37,17 @@ const SearchItem = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {results.map((item) => (
-              <div
-                key={item.id}
-                className="bg-sky-100 p-4 shadow rounded-xl"
-              >
+              <div key={item.id} className="bg-sky-100 p-4 shadow rounded-xl">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="h-40 w-full object-cover"
                 />
 
-                <h2 className="font-bold mt-2 text-slate-900">
-                  {item.name}
-                </h2>
+                <h2 className="font-bold mt-2 text-slate-900">{item.name}</h2>
 
                 <div className="flex justify-between items-center mt-3">
-                  <p className="text-sky-600 font-medium">
-                    {item.price}
-                  </p>
+                  <p className="text-sky-600 font-medium">{item.price}</p>
 
                   <Link
                     to={`/product/${item.id}`}
