@@ -38,9 +38,9 @@ const FeatureProduct = () => {
               onClick={() =>
                 dispatch(
                   addToCart({
-                    id: 100,
-                    name: "Jam Box",
-                    price: "$120",
+                    id: 101,
+                    name: "Headphones",
+                    price: "$89",
                     image: "/products/s.jpg",
                     quantity: 1,
                   })

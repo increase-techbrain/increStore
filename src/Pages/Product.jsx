@@ -3,9 +3,11 @@ import Navbar from "../Component/Navbar";
 import { useAppSelector, useAppDispatch } from "../hooks/useRedux";
 import { Link } from "react-router-dom";
 import { addToCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
+import Footer from "../Pages/Footer";
 
 const Product = () => {
   const dispatch = useAppDispatch();
+
   const product = useAppSelector((state) => state.products.allProducts || []);
   const cart = useAppSelector((state) => state.cart.items);
   const allProducts = [
@@ -17,70 +19,70 @@ const Product = () => {
   ];
 
   return (
-    <div>
+    <div className="min-h-screen bg-sky-900/90 w-full">
       <Navbar cart={cart} />
-      <div className="max-w-7xl mx-auto px-10 py-20">
+
+      <div className="max-w-7xl mx-auto px-10 py-20 ">
+      <h1 className="mb-3 text-sky-100 text-3xl md:text-4xl font-bold">ALL PRODUCT </h1>
         <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          
           {allProducts.map((item) => {
             const cartItem = cart.find((i) => i.id === item.id);
 
-            return(
+            return (
+             
               <div
-              key={item.id}
-              className="rounded-xl shadow-md p-4 hover:shadow-xl transition bg-sky-200 "
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-40 object-cover rounded-xl"
-              />
+                key={item.id}
+                className="rounded-xl shadow-md p-4 hover:shadow-xl transition bg-sky-200 "
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-40 object-cover rounded-xl"
+                />
 
-              <h2 className="mt-3 font-semibold">{item.name}</h2>
-              <p>{item.price}</p>
+                <h2 className="mt-3 font-semibold">{item.name}</h2>
+                <p>{item.price}</p>
 
-              <div className="flex justify-between mt-3">
-                <Link
-                  to={`/product/${item.id}`}
-                  className="bg-sky-800 text-white px-3 py-1 rounded text-sm hover:bg-sky-500"
-                >
-                  View
-                </Link>
-
-                {cartItem ? (
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={() => dispatch(decreaseQty(item.id))}
-                      className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600"
-                    >
-                      -
-                    </button>
-                    <span>{cartItem.qty}</span>
-                    <button
-                      onClick={() => dispatch(increaseQty(item.id))}
-                      className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600"
-                    >
-                      +
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => dispatch(addToCart(item))}
-                    className="bg-emerald-600 text-white px-3 py-1 rounded text-sm hover:bg-emerald-700"
+                <div className="flex justify-between mt-3">
+                  <Link
+                    to={`/product/${item.id}`}
+                    className="bg-slate-700/45 text-white px-3 py-1 rounded text-sm hover:bg-slate-500"
                   >
-                  Add to Cart
-                </button>
-                )}
-              </div>
-            </div>
-            );
-})}
+                    View
+                  </Link>
 
-            
-          
-        
-            
+                  {cartItem ? (
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => dispatch(decreaseQty(item.id))}
+                        className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600"
+                      >
+                        -
+                      </button>
+                      <span>{cartItem.quantity}</span>
+                      <button
+                        onClick={() => dispatch(increaseQty(item.id))}
+                        className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600 active:scale-95 transition"
+                      >
+                        +
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => dispatch(addToCart(item))}
+                      className="bg-sky-600 text-white px-3 py-1 rounded text-sm hover:bg-sky-500 active:scale-95 transition"
+                    >
+                      Add to Cart
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

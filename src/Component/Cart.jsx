@@ -12,14 +12,22 @@ import {
 const Cart = () => {
   const dispatch = useAppDispatch();
 
-  const cart = useAppSelector((state) => state.cart.items);
+  const cart = useAppSelector((state) => state.cart.items || []);
 
+  // ✅ FIX 1: safer + cleaner total calculation
   const totalPrice = cart
-    .reduce(
-      (total, item) =>
-        total + Number(item.price.replace("$", "")) * item.quantity,
-      0,
-    )
+    .reduce((total, item) => {
+      if (!item) return total;
+
+      const price =
+        typeof item.price === "string"
+          ? Number(item.price.replace(/[^0-9.]/g, ""))
+          : item.price || 0;
+
+      const qty = item.quantity || 1;
+
+      return total + price * qty;
+    }, 0)
     .toFixed(2);
 
   return (
@@ -29,15 +37,18 @@ const Cart = () => {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
+        {/* ✅ FIX 2: empty state UI */}
         {cart.length === 0 ? (
-          <p>Your cart is empty</p>
+          <p className="text-gray-500">Your cart is empty</p>
         ) : (
           <div className="space-y-6">
+
             {cart.map((item) => (
               <div
                 key={item.id}
                 className="flex items-center justify-between bg-white shadow-md rounded-xl p-4"
               >
+                {/* PRODUCT INFO */}
                 <div className="flex items-center gap-4">
                   <img
                     src={item.image}
@@ -51,10 +62,11 @@ const Cart = () => {
                   </div>
                 </div>
 
+                {/* QUANTITY CONTROLS */}
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => dispatch(decreaseQty(item.id))}
-                    className="bg-gray-200 p-2 rounded"
+                    className="bg-gray-200 p-2 rounded hover:bg-gray-300 active:scale-95 transition"
                   >
                     <ArrowDown size={16} />
                   </button>
@@ -63,25 +75,29 @@ const Cart = () => {
 
                   <button
                     onClick={() => dispatch(increaseQty(item.id))}
-                    className="bg-gray-200 p-2 rounded"
+                    className="bg-gray-200 p-2 rounded hover:bg-gray-300 active:scale-95 transition"
                   >
                     <ArrowUp size={16} />
                   </button>
                 </div>
 
+                {/* REMOVE */}
                 <button
                   onClick={() => dispatch(removeFromCart(item.id))}
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700 active:scale-95 transition"
                 >
                   <Trash2 size={20} />
                 </button>
               </div>
             ))}
 
+            {/* TOTAL */}
             <div className="bg-gray-100 p-6 rounded-xl flex justify-between items-center mt-10">
-              <h2 className="text-xl font-semibold">Total: ${totalPrice}</h2>
+              <h2 className="text-xl font-semibold">
+                Total: ${totalPrice}
+              </h2>
 
-              <button className="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-500">
+              <button className="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-500 active:scale-95 transition">
                 Checkout
               </button>
             </div>

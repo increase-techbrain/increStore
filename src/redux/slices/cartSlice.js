@@ -20,7 +20,7 @@ const initialState ={
 };
 
 const cartSlice = createSlice({
-    name : "cart",
+    name : "cart",   
     initialState,
     reducers:{
 
@@ -29,8 +29,8 @@ const cartSlice = createSlice({
                 (item)=>item.id === action.payload.id
             );
 
-            if (exist){
-                exist.quantity  +=1;
+            if (exist){ 
+                exist.quantity  += 1;
             }else{
                 state.items.push({...action.payload, quantity:1})
             }

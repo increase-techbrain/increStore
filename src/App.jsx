@@ -8,6 +8,9 @@ import MoreProduct from "./Pages/MoreProduct";
 import { useState } from "react";
 import ProductDetail from "./Component/ProductDetail";
 import Cart from "./Component/Cart";
+import AboutHero from "./Pages/AboutHero"
+import ListLink from "./Component/ListLink"
+import SearchItem from "./Component/SearchItem";
 
 
 function App() {
@@ -67,6 +70,13 @@ function App() {
         />
 
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+
+        <Route path="/about" element={<AboutHero />} />
+        
+        <Route path="/List" element={<ListLink />} />
+        
+        <Route path="/search" element={<SearchItem />} />
+
       </Routes>
     </div>
   );

@@ -63,7 +63,7 @@ const ListItems = () => {
               Fashion, accessories and more
             </p>
             <Link to="/moreproduct">
-              <button className="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">
+              <button  className="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">
                 View Products
               </button>
             </Link>

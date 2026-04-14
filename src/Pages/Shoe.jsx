@@ -3,6 +3,7 @@ import Navbar from "../Component/Navbar";
 import { useAppSelector, useAppDispatch } from "../hooks/useRedux";
 import { addToCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
+import Footer from "../Pages/Footer"
 
 const Shoe = () => {
   const dispatch = useAppDispatch();
@@ -13,10 +14,11 @@ const Shoe = () => {
   const cart = useAppSelector((state) => state.cart.items);
 
   return (
-    <div>
-      <Navbar cart={cart} />
-
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <div >
+     
+      <div className="bg-sky-200 min-h-screen w-full">
+         <Navbar cart={cart} />
+         <div className="max-w-7xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-8 text-sky-800">Shoes / Wears</h1>
 
         <div className="bg-sky-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 rounded-xl">
@@ -77,7 +79,13 @@ const Shoe = () => {
           })}
         </div>
       </div>
+
+      </div>
+
+     
+      <Footer/>
     </div>
+
   );
 };
 

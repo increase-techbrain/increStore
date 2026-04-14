@@ -7,7 +7,7 @@
     {"id": 5, "name": "HP Laptop", "image": "/products/l.jpg", "price": "$40", "rating": 4.1, "review": "Great for everyday tasks and long working hours"},
     {"id": 6, "name": "iPhone 13", "image": "/products/0o.jpg", "price": "$799", "rating": 4.8, "review": "Excellent camera quality with fast and smooth performance"},
     {"id": 7, "name": "Apple Laptop", "image": "/products/ko.jpg", "price": "$950", "rating": 4.4, "review": "Powerful and efficient for work, coding, and study"},
-    {"id": 8, "name": "Headphones", "image": "/products/item (7).jpg", "price": "$160", "rating": 4.8, "review": "Clear sound with a calm and immersive listening experience"},
+    {"id": 8, "name": "Classic Headphones", "image": "/products/item (7).jpg", "price": "$160", "rating": 4.8, "review": "Clear sound with a calm and immersive listening experience"},
     {"id": 9, "name": "AI Glass", "image": "/products/u8.jpg", "price": "$35", "rating": 4.2, "review": "Smart features with a modern and lightweight design"},
     {"id": 10, "name": "Gaming Keyboard", "image": "/products/item (24).jpg", "price": "$80", "rating": 4.5, "review": "Responsive keys with smooth typing and gaming experience"},
     {"id": 11, "name": "Pink Laptop", "image": "/products/ip.jpg", "price": "$85", "rating": 4.5, "review": "Stylish design with reliable performance for daily use"},
@@ -39,7 +39,7 @@
     {"id": 31, "name": "Pink Pot", "image": "/products/0.jpg", "price": "$160", "rating": 4.8, "review": "Beautiful design with strong build quality"},
     {"id": 32, "name": "Butterfly Pillow", "image": "/products/cv.jpg", "price": "$35", "rating": 4.3, "review": "Soft, cute, and perfect for decoration"},
     {"id": 33, "name": "Duvet", "image": "/products/item (25).jpg", "price": "$85", "rating": 4.5, "review": "Warm and comfortable for all seasons"},
-    {"id": 34, "name": "Refrigerator", "image": "/products/r.jpg", "price": "$60", "rating": 4.4, "review": "Cools quickly with good storage capacity"},
+    {"id": 34, "name": "Main Refrigerator", "image": "/products/r.jpg", "price": "$60", "rating": 4.4, "review": "Cools quickly with good storage capacity"},
     {"id": 35, "name": "Air Fryer", "image": "/products/yh.jpg", "price": "$85", "rating": 4.5, "review": "Fast cooking with less oil and easy to use"},
     {"id": 36, "name": "Coffee Dispenser", "image": "/products/des..jpg", "price": "$85", "rating": 4.5, "review": "Great for making different types of coffee"}
   ],
@@ -54,28 +54,23 @@
     {"id": 43, "name": "Modern Cooking Pot Set", "image": "/products/455.jpg", "price": "$55", "rating": 4.6, "review": "Durable set perfect for everyday cooking"},
     {"id": 44, "name": "Diamond Necklace", "image": "/products/item (45).jpg", "price": "$35", "rating": 4.2, "review": "Beautiful and shiny for special occasions"},
     {"id": 45, "name": "Pink Bag", "image": "/products/item (46).jpg", "price": "$80", "rating": 4.5, "review": "Trendy design with enough storage space"},
-    {"id": 46, "name": "Pink Headphone", "image": "/products/j.jpg", "price": "$85", "rating": 4.5, "review": "Stylish with clear and balanced sound"},
-    {"id": 47, "name": "Refrigerator", "image": "/products/r.jpg", "price": "$60", "rating": 4.4, "review": "Efficient cooling with low energy usage"},
-    {"id": 48, "name": "Gaming Keyboard", "image": "/products/lk.jpg", "price": "$80", "rating": 4.5, "review": "Smooth typing with responsive keys"},
-    {"id": 49, "name": "White Sofa", "image": "/products/p6.png", "price": "$85", "rating": 4.5, "review": "Comfortable and modern for any living room"},
+    {"id": 46, "name": "Pink Headphones", "image": "/products/j.jpg", "price": "$85", "rating": 4.5, "review": "Stylish with clear and balanced sound"},
+    {"id": 47, "name": "Mini Refrigerator", "image": "/products/r.jpg", "price": "$60", "rating": 4.4, "review": "Efficient cooling with low energy usage"},
+    {"id": 48, "name": "RGB Gaming Keyboard", "image": "/products/lk.jpg", "price": "$80", "rating": 4.5, "review": "Smooth typing with responsive keys"},
+    {"id": 49, "name": "Modern White Sofa", "image": "/products/p6.png", "price": "$85", "rating": 4.5, "review": "Comfortable and modern for any living room"},
     {"id": 50, "name": "Ring Light", "image": "/products/pl.jpg", "price": "$60", "rating": 4.4, "review": "Bright and perfect for photos and videos"},
-    {"id": 51, "name": "White Headset", "image": "/products/66.jpg", "price": "$85", "rating": 4.5, "review": "Clean design with good sound quality"},
-    {"id": 52, "name": "Shoe", "image": "/products/w.jpg", "price": "$60", "rating": 4.4, "review": "Simple and comfortable for everyday use"}
-    
-    
+    {"id": 51, "name": "White Headphones", "image": "/products/66.jpg", "price": "$85", "rating": 4.5, "review": "Clean design with good sound quality"},
+    {"id": 52, "name": "Casual Shoe", "image": "/products/w.jpg", "price": "$60", "rating": 4.4, "review": "Simple and comfortable for everyday use"}
   ],
 
-   "FeatureProduct": [
-    { "id": 53, "name": "Smart Watch"," price": "$55", "image": "/products/item (22).jpg" },
-    { "id": 54, "name": "skatting shoes", "price": "$80", "image": "/products/item (21).jpg"},
-    { "id": 55, "name": "Laptop gadget", "price": "$45", "image": "/products/item (16).jpg" },
-    { "id": 56, "name": "Laptop", "price": "$55", "image": "/products/l8.jpg" },
-    { "id": 57, "name": "Gaming TV", "price": "$40"," image": "/products/item (5).jpg" },
-    {" id": 58," name": "iphone", "price": "$15", "image": "/products/item (17).jpg" },
-    { "id": 59," name": "Bluetooth Speaker", "price": "$55", "image": "/products/tg.jpg" },
-    { "id": 60, "name": "Game pad", "price": "$40", "image": "/products/item (24).jpg" }
-  ]
-
-
+  "FeatureProduct": [
+  { "id": 53, "name": "Smart Watch", "price": "$55", "image": "/products/item (22).jpg", "rating": 4.5, "review": "Smart features with sleek design and long battery life" },
+  { "id": 54, "name": "Skating Shoes", "price": "$80", "image": "/products/item (21).jpg", "rating": 4.3, "review": "Comfortable grip and smooth skating performance" },
+  { "id": 55, "name": "Laptop Gadget", "price": "$45", "image": "/products/item (16).jpg", "rating": 4.2, "review": "Useful accessories to enhance productivity and workflow" },
+  { "id": 56, "name": "Laptop", "price": "$55", "image": "/products/l8.jpg", "rating": 4.4, "review": "Reliable performance for daily tasks and light work" },
+  { "id": 57, "name": "Gaming TV", "price": "$40", "image": "/products/item (5).jpg", "rating": 4.6, "review": "Smooth display with vibrant colors for gaming experience" },
+  { "id": 58, "name": "iPhone Mini", "price": "$15", "image": "/products/item (17).jpg", "rating": 4.1, "review": "Compact design with decent performance and portability" },
+  { "id": 59, "name": "Bluetooth Speaker", "price": "$55", "image": "/products/tg.jpg", "rating": 4.5, "review": "Loud sound with deep bass and long-lasting battery" },
+  { "id": 60, "name": "Game Pad", "price": "$40", "image": "/products/item (24).jpg", "rating": 4.4, "review": "Responsive controls with comfortable grip for gaming" }
+]
 }
-

@@ -5,7 +5,7 @@ import FeatureProduct from "../Component/FeatureProduct";
 import About from "./About";
 import Footer from "../Pages/Footer";
 import { addToCart, increaseQty, decreaseQty } from "../redux/slices/cartSlice";
-import { Link } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../hooks/useRedux";
 
 const Home = () => {
@@ -13,6 +13,11 @@ const Home = () => {
 
 
   const cart = useAppSelector((state) => state.cart.items);
+
+  
+
+
+
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -41,7 +46,7 @@ const Home = () => {
 
             <div className="flex gap-5 mt-8">
               <Link
-                to="/product"
+                to="/List"
                 className="bg-sky-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-sky-800 transition"
               >
                 Shop Now

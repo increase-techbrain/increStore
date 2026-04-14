@@ -20,7 +20,7 @@ const AboutUs = () => {
             <span className="text-gray-600 font-medium"> Our goal is simple — fast delivery, affordable prices, and happy customers.</span>
           </p>
           <div className="pt-4">
-             <Link to='/product' className="mt-6 bg-sky-700 text-white px-6 py-3 rounded-lg hover:bg-sky-500 transition">
+             <Link to='/List' className="mt-6 bg-sky-700 text-white px-6 py-3 rounded-lg hover:bg-sky-500 transition">
             Shop Now
           </Link>
           </div> 
@@ -34,7 +34,7 @@ const AboutUs = () => {
       </div>
 
       
-      <div className="max-w-7xl mx-auto px-6 pb-16 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-6 pb-16 grid sm:grid-cols-1 md:grid-cols-3 gap-6">
         
         <div className="bg-sky-200 p-6 rounded-xl shadow hover:shadow-xl transition">
           <h3 className="font-semibold text-lg mb-2 text-sky-700">
