@@ -14,7 +14,6 @@ const Cart = () => {
 
   const cart = useAppSelector((state) => state.cart.items || []);
 
-  // ✅ FIX 1: safer + cleaner total calculation
   const totalPrice = cart
     .reduce((total, item) => {
       if (!item) return total;
@@ -37,7 +36,6 @@ const Cart = () => {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
-        {/* ✅ FIX 2: empty state UI */}
         {cart.length === 0 ? (
           <p className="text-gray-500">Your cart is empty</p>
         ) : (
